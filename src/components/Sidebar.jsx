@@ -1,7 +1,7 @@
 import React from 'react'
 import { icons } from '../assets/icons'
 import "../style/Slidebar.css";
-import SideBarButton from './SideBarButton';
+// import SideBarButton from './SideBarButton';
 
 const Sidebar = () => {
     const { RiBook2Fill, RxDashboard, IoBookOutline, BiMessageRoundedDetail, FaBrain, BiSolidBookReader, IoSettings,

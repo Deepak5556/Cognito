@@ -1,0 +1,14 @@
+.SideBarButtonicon{
+    align-items: center;
+    gap: 10px;
+    background-color: #848484;
+    margin: 4px 5px;
+    display: flex;
+    border-radius: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.name{
+    font-size: 15px;
+}

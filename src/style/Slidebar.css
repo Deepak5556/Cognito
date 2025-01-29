@@ -1,0 +1,14 @@
+.logo{
+    display: flex;
+}
+.sidebar{
+    padding: 20px;
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-all-con{
+    margin-top: 10px;
+}

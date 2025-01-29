@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+.koulen-regular {
+  font-family: "Koulen", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.primary{
+  color: #4CB04F;
+}
+
+.primary-bg{
+  background-color: #4CB04F;
+}

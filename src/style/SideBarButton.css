@@ -1,14 +1,25 @@
 .SideBarButtonicon{
     align-items: center;
     gap: 10px;
-    background-color: #848484;
+    background-color: #F7F9FA;
     margin: 4px 5px;
     display: flex;
     border-radius: 5px;
-    padding: 5px 5px;
+    padding: 10px 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
-
+.SideBarButtonicon:hover{
+    background-color: green;
+    color: #F7F9FA;
+    
+}
 .name{
     font-size: 15px;
+    font-weight: 500;
+}
+
+.SideBarButtonicon .icon .name{
+    align-items: center;
 }

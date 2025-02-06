@@ -1,8 +1,7 @@
 import React from 'react'
 import { icons } from '../assets/icons'
-import "../style/Slidebar.css";
-// import SideBarButton from './SideBarButton';
-
+import '../style/Sidebar.css'
+import SideBarButton from './SideBarButton';
 const Sidebar = () => {
     const { RiBook2Fill, RxDashboard, IoBookOutline, BiMessageRoundedDetail, FaBrain, BiSolidBookReader, IoSettings,
         BiSupport
@@ -20,10 +19,10 @@ const Sidebar = () => {
                             <div className="category">
                                 General
                             </div>
-                            <SideBarButton icon={RxDashboard} Title="Dashboard" />
-                            <SideBarButton icon={IoBookOutline} Title="Courses" />
+                            <SideBarButton icon={RxDashboard} link="/Dashboard" Title="Dashboard" />
+                            <SideBarButton icon={IoBookOutline} link="/Courses" Title="Courses" />
                             <SideBarButton icon={BiMessageRoundedDetail} Title="Messages" />
-                            <SideBarButton icon={FaBrain} Title="Cogni AI" />
+                           
                         </div>
                         <div className="course">
                             <div className="category">
@@ -35,6 +34,7 @@ const Sidebar = () => {
                             <div className="category">
                                 Others
                             </div>
+                            <SideBarButton icon={FaBrain} Title="Cogni AI" />
                             <SideBarButton icon={BiSupport} Title="Support" />
                             <SideBarButton icon={IoSettings} Title="Settings" />
                         </div>
@@ -44,5 +44,4 @@ const Sidebar = () => {
         </>
     )
 }
-
 export default Sidebar

@@ -21,22 +21,22 @@ const Sidebar = () => {
                             </div>
                             <SideBarButton icon={RxDashboard} link="/Dashboard" Title="Dashboard" />
                             <SideBarButton icon={IoBookOutline} link="/Courses" Title="Courses" />
-                            <SideBarButton icon={BiMessageRoundedDetail} Title="Messages" />
+                            <SideBarButton icon={BiMessageRoundedDetail} link="/Message" Title="Messages" />
                            
                         </div>
                         <div className="course">
                             <div className="category">
                                 Courses
                             </div>
-                            <SideBarButton icon={BiSolidBookReader} Title="MyCourses" />
+                            <SideBarButton icon={BiSolidBookReader} link="/MyCourses" Title="MyCourses" />
                         </div>
                         <div className="other">
                             <div className="category">
                                 Others
                             </div>
-                            <SideBarButton icon={FaBrain} Title="Cogni AI" />
-                            <SideBarButton icon={BiSupport} Title="Support" />
-                            <SideBarButton icon={IoSettings} Title="Settings" />
+                            <SideBarButton icon={FaBrain} link="/CognitoAi" Title="Cogni AI" />
+                            <SideBarButton icon={BiSupport} link="/Support"    Title="Support" />
+                            <SideBarButton icon={IoSettings} link="/Settings"  Title="Settings" />
                         </div>
                     </div>
                 </div>

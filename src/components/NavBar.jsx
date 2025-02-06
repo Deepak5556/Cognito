@@ -1,6 +1,9 @@
 import React from 'react'
-
+import '../style/NavBar.css'
+import { icons } from '../assets/icons'
 const NavBar = () => {
+    const { FaBell
+    } = icons;
     return (
         <>
             <div className="navbar">
@@ -9,8 +12,7 @@ const NavBar = () => {
                 </div>
                 <div className="list">
                     <ul>
-                        <li>1</li>
-                        <li>2</li>
+                        <FaBell/>
                     </ul>
                 </div>
             </div>

@@ -7,7 +7,8 @@ import { FaBrain } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
 import { FaBell } from "react-icons/fa";
+import { IoPerson } from "react-icons/io5";
 export const icons = {
     RiBook2Fill, RxDashboard,IoBookOutline,BiMessageRoundedDetail,FaBrain,BiSolidBookReader,IoSettings,
-    BiSupport,FaBell
+    BiSupport,FaBell,IoPerson
 }

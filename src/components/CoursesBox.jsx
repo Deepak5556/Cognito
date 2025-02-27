@@ -24,7 +24,7 @@ const CoursesBox = ({ title, rating, instructor, price ,thumbnail  }) => {
           }}
         />
         <h5 className="card-title" style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '15px' }}>{title}</h5>
-        <h6 className="card-subtitle mb-2 text-muted" style={{ fontSize: '0.9rem', color: '#666' }}>Rating: {rating}</h6>
+        <h6 className="card-subtitle mb-2 text-muted" style={{ fontSize: '0.9rem', color: '#666' }}>Rating: {rating}/5</h6>
         <p className="card-text" style={{ fontSize: '0.9rem', color: '#333', marginBottom: '10px' }}>Instructor: {instructor}</p>
         <p className="card-text" style={{ fontSize: '1rem', color: '#000', fontWeight: 'bold', marginBottom: '20px' }}>Price: ${price}</p>
         <a href="#" className="btn btn-success" style={{

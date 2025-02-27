@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <>
             <div className="navbar shadow-lg p-3  bg-body px-4">
-                <div className="logo">
+                <div className="logo fs-4 fw-semibold ">
                     Welcome Back Deepak!
                 </div>
                 <div className="list">

@@ -1,11 +1,13 @@
 import React from 'react'
+import CogniAI from '../pagecomponents/CogniAI'
 
 const CognitoAi = () => {
   return (
     <div>
-      <h1>Ai</h1>
+      <div className="p-3">
+        <CogniAI />
+      </div>
     </div>
   )
 }
-
 export default CognitoAi

@@ -9,4 +9,5 @@ ul{
     background-color: #F9F7FA;
     padding:10px 20px;
     border-radius: 10px;
+    position: static;
 }

@@ -1,3 +1,14 @@
-.sidebar{
-    background-color: #F9F7FA;
+.sidebar {
+  background-color: #f9f7fa;
 }
+.rounded-24 {
+  border-radius: 18px;
+}
+.fs-50 {
+  font-size: 50px;
+}
+.fs-30 {
+  font-size: 25px;
+}
+
+

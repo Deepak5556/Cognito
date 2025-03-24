@@ -11,7 +11,7 @@ const Sidebar = () => {
             <div className="sidebar">
                 <div className="side-content">
                     <div className="logo">
-                        <RiBook2Fill className='primary' size='40px' />
+                        <RiBook2Fill className='primary mt-2 m-2' size='40px' />
                         <div className="logo-title fs-1 koulen-regular primary">Cognito</div>
                     </div>
                     <div className="side-all-con">

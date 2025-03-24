@@ -1,10 +1,13 @@
 import React from 'react'
 import '../style/Dashboard.css'
+import DashCard from '../pagecomponents/DashCard'
+import DashCourses from '../pagecomponents/DashCourses'
 
 const Dashboard = () => {
   return (
     <>
-      <h1>Dashboard</h1>
+      <DashCard/>
+      <DashCourses/>
     </>
   )
 }

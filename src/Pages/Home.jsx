@@ -13,7 +13,7 @@ const Home = () => {
         </div>
 
         {/* Main Content - Adjusts to full width on smaller screens */}
-        <div className="col-lg-10 col-md-12">
+        <div className="col-lg-10 col-md-12 ">
           <div className="container">
             {/* Navigation Bar */}
             <NavBar />

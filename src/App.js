@@ -1,13 +1,15 @@
 import './App.css';
-import Dashboard from './Pages/Dashboard';
+// import LoginPage from './Pages/LoginPage';
 import Home from './Pages/Home';
-import AppNavigation from './router/AppNavigation';
+// import TeacherHome from './Pages/TeacherHome';
 function App() {
 
   return (
     <>
        {/* <AppNavigation/> */}
-       <Home/>
+      <Home/>
+      {/* <TeacherHome/> */}
+      {/* <LoginPage/> */}
     </>
   );
 }

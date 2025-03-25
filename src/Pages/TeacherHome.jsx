@@ -2,8 +2,9 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import AppNavigation from "../router/AppNavigation";
 import NavBar from "../components/NavBar";
+import TeacherNavigation from "../router/TeacherNavigation";
 
-const Home = () => {
+const TeacherHome = () => {
   return (
     <>
       <div className="row">
@@ -17,9 +18,8 @@ const Home = () => {
           <div className="container">
             {/* Navigation Bar */}
             <NavBar />
-
+            {/* <TeacherNavigation/> */}
             {/* App Navigation */}
-            <AppNavigation />
           </div>
         </div>
       </div>
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TeacherHome

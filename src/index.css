@@ -11,5 +11,10 @@
   background-color: #4CB04F;
 }
 .secondary-bg{
-  background-color: #F7F9FA;
+  background-color: #e0dede;
+}
+
+
+.br-5{
+  border-radius: 18px;
 }

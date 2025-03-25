@@ -1,6 +1,6 @@
 import React from 'react'
-import CoursesBox from '../components/CoursesBox'
-import CoursesList from '../components/CoursesList'
+// import CoursesBox from '../../components/CoursesBox'
+import CoursesList from '../../components/CoursesList'
 
 const Courses = () => {
     return (

@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Pages/Home";
-import Sidebar from "../components/Sidebar";
-import Dashboard from "../Pages/Dashboard";
-import Courses from "../Pages/Courses";
-import Message from "../Pages/Message";
-import CognitoAi from "../Pages/CognitoAi";
-import Support from "../Pages/Support";
-import Settings from "../Pages/Settings";
-import MyCourses from "../Pages/MyCourses";
+import Dashboard from "../Pages/Student/Dashboard";
+import Courses from "../Pages/Student/Courses";
+import Message from "../Pages/Student/Message";
+import CognitoAi from "../Pages/Student/CognitoAi";
+import Support from "../Pages/Student/Support";
+import Settings from "../Pages/Student/Settings";
+import MyCourses from "../Pages/Student/MyCourses";
+// import LoginPage from "../Pages/LoginPage";
 const AppNavigation = () => {
   return (
     <>

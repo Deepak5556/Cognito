@@ -1,5 +1,5 @@
 import React from 'react'
-import CogniAI from '../pagecomponents/CogniAI'
+import CogniAI from '../../pagecomponents/CogniAI'
 
 const CognitoAi = () => {
   return (

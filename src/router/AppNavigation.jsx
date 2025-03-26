@@ -7,6 +7,7 @@ import CognitoAi from "../Pages/Student/CognitoAi";
 import Support from "../Pages/Student/Support";
 import Settings from "../Pages/Student/Settings";
 import MyCourses from "../Pages/Student/MyCourses";
+import CourseDetails from "../pagecomponents/CourseDetails";
 // import LoginPage from "../Pages/LoginPage";
 const AppNavigation = () => {
   return (
@@ -21,6 +22,7 @@ const AppNavigation = () => {
         <Route path="/Support" element={<Support />} />
         <Route path="/Settings" element={<Settings />} />
         <Route path="/MyCourses" element={<MyCourses />} />
+        <Route path="/CoursesDetails" element={<CourseDetails/>}/>
       </Routes>
     </>
   );

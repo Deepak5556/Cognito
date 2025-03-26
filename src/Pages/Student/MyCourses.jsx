@@ -8,10 +8,10 @@ const MyCourses = () => {
       title: "ReactJS From Scratch - Basic",
       rating: 4.3,
       instructor: "Dr. Antrim Vijay",
-      progress : 4,
-      total : 5,
+      progress: 4,
+      total: 5,
       thumbnail: deepak,
-      to:"/Courses"
+      to: "/CoursesDetails",
     },
   ];
 
@@ -29,7 +29,7 @@ const MyCourses = () => {
         {courses.map((course, index) => (
           <MyCoursesCard
             key={index}
-            title={course.title}
+            titl e={course.title}
             rating={course.rating}
             instructor={course.instructor}
             progress={course.progress}

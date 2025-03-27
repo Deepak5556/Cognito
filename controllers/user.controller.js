@@ -14,7 +14,7 @@ export const register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "User Already Exists" });
     }
-    const hashPassword = await bcrypt.hash(password, 10); 
+    const hashPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       name,
@@ -39,21 +39,22 @@ export const register = async (req, res) => {
       { expiresIn: "5m" }
     );
 
-    // await sendMail(email, "Cognito", { name, otp });
+    const data = {
+      name,
+      otp,
+    };
 
-  return  res.status(200).json({
+    await sendMail(email, "Cognito", data);
+
+    return res.status(200).json({
       message: "OTP Sent to Your Mail",
       activationToken,
     });
-
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
 
     return res.status(500).json({
       message: error.message,
     });
   }
 };
-
-
-

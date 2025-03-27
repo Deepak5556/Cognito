@@ -1,7 +1,16 @@
 import express from "express";
-import { register, verifyUser } from "../controllers/user.controller.js";
+import {
+  loginUser,
+  myProfile,
+  register,
+  verifyUser,
+} from "../controllers/user.controller.js";
+import { isAuth } from "../middleware/isAuth.js";
 
 const router = express.Router();
-router.post("/verify", verifyUser);
+router.post("/user/verify", verifyUser);
 router.post("/user/register", register);
+router.post("/user/login", loginUser);
+router.post("/user/me", isAuth, myProfile);
+
 export default router;

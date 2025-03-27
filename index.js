@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./database/db.js";
 import userRouter from "../backend/routes/user.router.js";
 
+
 dotenv.config();
 
 const app = express();
@@ -12,7 +13,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Server is Working");
-});
+}); 
 
 
 //using routes

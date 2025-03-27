@@ -24,7 +24,6 @@ const sendMail = async (email, subject, data) => {
     subject,
     html,
   });
-
   console.log("📧 Email Sent Successfully!");
 };
 

@@ -6,7 +6,11 @@ import {
   getSingleCourse,
 } from "../controllers/course.controller.js";
 import { isAuth } from "../middleware/isAuth.js";
-import { getMyCourses } from "../controllers/admin.controller.js";
+import {
+  checkout,
+  getMyCourses,
+  paymentVerfication,
+} from "../controllers/admin.controller.js";
 
 const router = express.Router();
 
@@ -15,4 +19,7 @@ router.get("/course/:id", getSingleCourse);
 router.get("/modules/:id", isAuth, fetchModules);
 router.get("/module/:id", isAuth, fetchModule);
 router.get("/mycourse", isAuth, getMyCourses);
+router.post("/course/checkout/:id", isAuth, checkout);
+router.post("/verification/:id", isAuth, paymentVerfication);
+
 export default router;

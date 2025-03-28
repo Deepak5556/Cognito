@@ -4,8 +4,15 @@ import { connectDB } from "./database/db.js";
 import userRouter from "./routes/user.router.js";
 import courseRouter from "./routes/course.route.js";
 import adminRouter from "./routes/admin.route.js";
+import Razorpay from "razorpay";
 
 dotenv.config();
+
+export const instance = new Razorpay({
+  key_id: process.env.Razorpay_Key,
+  key_secret: process.env.Razorpay_Secret,
+});
+
 const app = express();
 
 app.use(express.json());

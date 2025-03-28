@@ -1,11 +1,14 @@
-import { log } from "console";
+import { instance } from "../index.js";
 import TryCatch from "../middleware/TryCatch.js";
 import { Courses } from "../models/course.model.js";
 import { Modules } from "../models/moules.models.js";
 import { rm } from "fs";
 import { promisify } from "util";
 import fs from "fs";
+import crypto from "crypto";
 import { User } from "../models/user.model.js";
+import { Payment } from "../models/payment.model.js";
+
 export const createCourse = TryCatch(async (req, res) => {
   const { title, description, category, createdBy, duration, price } = req.body;
 
@@ -108,7 +111,68 @@ export const getAllStats = TryCatch(async (req, res) => {
 
 export const getMyCourses = TryCatch(async (req, res) => {
   const courses = await Courses.find({ _id: req.user.subscription });
-  res.json({  
+  res.json({
     courses,
   });
+});
+
+export const checkout = TryCatch(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  const course = await Courses.findById(req.params.id);
+
+  if (user.subscription.includes(course._id)) {
+    return res.status(400).json({
+      message: "You already have this Course",
+    });
+  }
+
+  const options = {
+    amount: Number(course.price * 100),
+    currency: "INR",
+  };
+
+  const order = await instance.order.create(options);
+
+  res.status(201).json({
+    order,
+    course,
+  });
+});
+
+export const paymentVerfication = TryCatch(async (req, res) => {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+    req.body;
+
+  const body = razorpay_order_id + "|" + razorpay_payment_id;
+
+  const expectedSignature = crypto
+    .createHmac("sha256", process.env.Razorpay_Secret)
+    .update(body)
+    .digest("hex");
+
+  const isAuthentic = expectedSignature === razorpay_signature;
+
+  if (isAuthentic) {
+    Payment.create({
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+    });
+
+    const user = await User.findById(req.user._id);
+
+    const course = await Courses.findById(req.params.id);
+
+    user.subscription.push(course._id);
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Course purchased Successfully",
+    });
+  } else {
+    return res.status(404).json({
+      message: "Payment Failed",
+    });
+  }
 });

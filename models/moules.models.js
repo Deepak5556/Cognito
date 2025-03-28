@@ -18,6 +18,10 @@ const schema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  video: {
+    type: String,
+    required: true,
+  },
 });
 
 export const Modules = mongoose.model("Module", schema);

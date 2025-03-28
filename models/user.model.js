@@ -22,7 +22,7 @@ const schema = new mongoose.Schema(
     },
     subscription: [
       {
-        type: mongoose.Schema.Types.ObjectId, // ✅ Corrected this line
+        type: mongoose.Schema.Types.ObjectId, 
         ref: "Course",
       },
     ],

@@ -8,7 +8,11 @@ import TryCatch from "../middleware/TryCatch.js";
 
 export const register = TryCatch(async (req, res) => {
   const { email, name, password } = req.body;
-  const Secret = "hbahdfbj256";
+
+  if (!email || !name || !password) {
+    return res.status(400).json({ message: "All fields are required " });
+  }
+
   let user = await User.findOne({ email });
 
   if (user)
@@ -31,7 +35,7 @@ export const register = TryCatch(async (req, res) => {
       user,
       otp,
     },
-    Secret,
+    process.env.Activation_Secret,
     {
       expiresIn: "5m",
     }
@@ -53,7 +57,7 @@ export const register = TryCatch(async (req, res) => {
 export const verifyUser = TryCatch(async (req, res) => {
   const { otp, activationToken } = req.body;
 
-  const verify = jwt.verify(activationToken, "hbahdfbj256");
+  const verify = jwt.verify(activationToken, process.env.Activation_Secret);
 
   if (!verify)
     return res.status(400).json({
@@ -81,27 +85,20 @@ export const loginUser = TryCatch(async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  if (!user) {
+  if (!user)
     return res.status(400).json({
-      message: "User Not Found ",
+      message: "No User with this email",
     });
-  }
   const matchPassword = await bcrypt.compare(password, user.password);
-  if (!matchPassword) {
-    return res.status(400).json({
-      message: "Password Invalid",
-    });
-  }
 
-  const token = jwt.sign(
-    {
-      _id: user._id,
-    },
-    process.env.JWT_Sec,
-    {
-      expiresIn: "15d",
-    }
-  );
+  if (!matchPassword)
+    return res.status(400).json({
+      message: "Wrong Password",
+    });
+
+  const token = jwt.sign({ _id: user._id }, process.env.Jwt_Sec, {
+    expiresIn: "15d",
+  });
 
   res.json({
     message: `Welcome back ${user.name}`,
@@ -113,5 +110,30 @@ export const loginUser = TryCatch(async (req, res) => {
 export const myProfile = TryCatch(async (req, res) => {
   const user = await User.findById(req.user._id);
 
-  res.json({user});
+  res.json({ user });
+});
+
+export const forgotPassword = TryCatch(async (req, res) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (!user)
+    return res.status(404).json({
+      message: "No User with this email",
+    });
+
+  const token = jwt.sign({ email }, process.env.Forgot_Secret);
+
+  const data = { email, token };
+
+  await sendForgotMail("Cognito", data);
+
+  user.resetPasswordExpire = Date.now() + 5 * 60 * 1000;
+
+  await user.save();
+
+  res.json({
+    message: "Reset Password Link is send to you mail",
+  });
 });

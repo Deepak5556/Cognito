@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Debugging
 console.log("Email:", process.env.Gmail);
 console.log("Password:", process.env.Password ? "Loaded" : "Not Loaded");
 

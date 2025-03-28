@@ -1,7 +1,8 @@
+import { log } from "console";
 import TryCatch from "../middleware/TryCatch.js";
 import { Courses } from "../models/course.model.js";
 import { Modules } from "../models/moules.models.js";
-
+import { rm } from "fs";
 export const createCourse = TryCatch(async (req, res) => {
   const { title, description, category, createdBy, duration, price } = req.body;
 
@@ -45,4 +46,15 @@ export const addModule = TryCatch(async (req, res) => {
     message: "Modules Added",
     module,
   });
+});
+
+export const deleteModule = TryCatch(async (req, res) => {
+  const module = await Modules.findById(req.params.id);
+  rm(module.video, () => {
+    console.log("Video Deleted");
+  });
+  await module.deleteOne();
+  res.json({
+    message:"Module Deleted"
+  })
 });

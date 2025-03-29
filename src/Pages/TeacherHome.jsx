@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import AppNavigation from "../router/AppNavigation";
 import NavBar from "../components/NavBar";
-import TeacherNavigation from "../router/TeacherNavigation";
+// import TeacherNavigation from "../router/TeacherNavigation";
 
 const TeacherHome = () => {
   return (

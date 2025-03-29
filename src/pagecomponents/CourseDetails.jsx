@@ -36,7 +36,9 @@ const CourseDetails = () => {
                 <h6>Languages : </h6>
                 <ul>
                   <li>Tamil</li>
-                  <li>Tamil</li>
+                  <li>English</li>
+                  <li>French</li>
+                  <li>Spanish</li>
                 </ul>
               </div>
               <button className="btn primary-bg text-white fw-bold  my-1">

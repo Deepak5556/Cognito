@@ -8,13 +8,14 @@ import Support from "../Pages/Student/Support";
 import Settings from "../Pages/Student/Settings";
 import MyCourses from "../Pages/Student/MyCourses";
 import CourseDetails from "../pagecomponents/CourseDetails";
+import OnBoarding from "../Pages/OnBoarding.jsx";
 // import LoginPage from "../Pages/LoginPage";
 const AppNavigation = () => {
   return (
     <>
       {/* <Home/> */}
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<OnBoarding />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/Message" element={<Message />} />
@@ -22,7 +23,7 @@ const AppNavigation = () => {
         <Route path="/Support" element={<Support />} />
         <Route path="/Settings" element={<Settings />} />
         <Route path="/MyCourses" element={<MyCourses />} />
-        <Route path="/CoursesDetails" element={<CourseDetails/>}/>
+        <Route path="/CoursesDetails" element={<CourseDetails />} />
       </Routes>
     </>
   );

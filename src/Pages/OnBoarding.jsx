@@ -10,7 +10,9 @@ const OnBoarding = () => {
         <div className="home-content">
           <h1>Welcome to our E-learning Platform</h1>
           <p>Learn, Grow, Excel</p>
-          <button onClick={() => navigate("/Dashboard")} className="common-btn">
+
+          {/* Corrected onClick handler */}
+          <button onClick={() => navigate("/Home")} className="common-btn">
             Get Started
           </button>
         </div>

@@ -8,24 +8,20 @@ import Support from "../Pages/Student/Support";
 import Settings from "../Pages/Student/Settings";
 import MyCourses from "../Pages/Student/MyCourses";
 import CourseDetails from "../pagecomponents/CourseDetails";
-import OnBoarding from "../Pages/OnBoarding.jsx";
-// import LoginPage from "../Pages/LoginPage";
+
 const AppNavigation = () => {
   return (
-    <>
-      {/* <Home/> */}
-      <Routes>
-        <Route path="/" element={<OnBoarding />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Courses" element={<Courses />} />
-        <Route path="/Message" element={<Message />} />
-        <Route path="/CognitoAi" element={<CognitoAi />} />
-        <Route path="/Support" element={<Support />} />
-        <Route path="/Settings" element={<Settings />} />
-        <Route path="/MyCourses" element={<MyCourses />} />
-        <Route path="/CoursesDetails" element={<CourseDetails />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/Home/Dashboard" element={<Dashboard />} /> {/* Relative path */}
+      <Route path="/Hame/Courses" element={<Courses />} />
+      <Route path="/Hame/Message" element={<Message />} />
+      <Route path="/Hame/CognitoAi" element={<CognitoAi />} />
+      <Route path="/Hame/Support" element={<Support />} />
+      <Route path="/Hame/Settings" element={<Settings />} />
+      <Route path="/Hame/MyCourses" element={<MyCourses />} />
+      <Route path="/Hame/CoursesDetails" element={<CourseDetails />} />
+    </Routes>
   );
 };
+
 export default AppNavigation;

@@ -12,14 +12,15 @@ import CourseDetails from "../pagecomponents/CourseDetails";
 const AppNavigation = () => {
   return (
     <Routes>
-      <Route path="/Home/Dashboard" element={<Dashboard />} /> {/* Relative path */}
-      <Route path="/Hame/Courses" element={<Courses />} />
-      <Route path="/Hame/Message" element={<Message />} />
-      <Route path="/Hame/CognitoAi" element={<CognitoAi />} />
-      <Route path="/Hame/Support" element={<Support />} />
-      <Route path="/Hame/Settings" element={<Settings />} />
-      <Route path="/Hame/MyCourses" element={<MyCourses />} />
-      <Route path="/Hame/CoursesDetails" element={<CourseDetails />} />
+      <Route path="/" element={<Dashboard />} /> 
+      <Route path="Dashboard" element={<Dashboard />} /> 
+      <Route path="Courses" element={<Courses />} />
+      <Route path="Message" element={<Message />} />
+      <Route path="CognitoAi" element={<CognitoAi />} />
+      <Route path="Support" element={<Support />} />
+      <Route path="Settings" element={<Settings />} />
+      <Route path="MyCourses" element={<MyCourses />} />
+      <Route path="CourseDetails" element={<CourseDetails />} />
     </Routes>
   );
 };

@@ -15,6 +15,13 @@
 }
 
 
+.primary-btn{
+  background-color: #4CB04F;
+  color: white;
+  font-size: medium;
+}
+
+
 .br-5{
   border-radius: 18px;
 }

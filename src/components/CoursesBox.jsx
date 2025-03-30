@@ -18,7 +18,7 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
       <div className="card-body" style={{ padding: "10px" }}>
         <img
           src={thumbnail}
-          alt="Course Image"
+          alt="Course"
           style={{
             width: "100%",
             height: "12rem",
@@ -60,7 +60,7 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
           Price: ${price}
         </p>
         <a
-          href="#"
+          href="deepakportfolioo.web.app"
           className="btn btn-success"
           style={{
             backgroundColor: "#4CB04F",

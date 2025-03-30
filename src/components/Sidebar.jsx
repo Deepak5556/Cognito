@@ -28,17 +28,17 @@ const Sidebar = () => {
               <div className="category">General</div>
               <SideBarButton
                 icon={RxDashboard}
-                link="/Dashboard"
+                link="/Home/Dashboard"
                 Title="Dashboard"
               />
               <SideBarButton
                 icon={IoBookOutline}
-                link="/Courses"
+                link="/Home/Courses"
                 Title="Courses"
               />
               <SideBarButton
                 icon={BiMessageRoundedDetail}
-                link="/Message"
+                link="/Home/Message"
                 Title="Messages"
               />
             </div>
@@ -46,7 +46,7 @@ const Sidebar = () => {
               <div className="category">Courses</div>
               <SideBarButton
                 icon={BiSolidBookReader}
-                link="/MyCourses"
+                link="/Home/MyCourses"
                 Title="MyCourses"
               />
             </div>
@@ -54,13 +54,13 @@ const Sidebar = () => {
               <div className="category">Others</div>
               <SideBarButton
                 icon={FaBrain}
-                link="/CognitoAi"
+                link="/Home/CognitoAi"
                 Title="Cogni AI"
               />
-              <SideBarButton icon={BiSupport} link="/Support" Title="Support" />
+              <SideBarButton icon={BiSupport} link="/Home/Support" Title="Support" />
               <SideBarButton
                 icon={IoSettings}
-                link="/Settings"
+                link="/Home/Settings"
                 Title="Settings"
               />
             </div>

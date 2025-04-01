@@ -5,18 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/UserContext";
+import { CourseContextProvider } from "./context/CourseContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // export const; // Ensure correct protocol
 export const server = "http://localhost:5500"; // ✅ Ensure this is correct
 
-
-
-
 root.render(
   <BrowserRouter>
     <UserContextProvider>
-      <App />
+      <CourseContextProvider>
+        <App />
+      </CourseContextProvider>
     </UserContextProvider>
   </BrowserRouter>
 );

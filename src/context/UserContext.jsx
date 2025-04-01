@@ -24,12 +24,56 @@ export const UserContextProvider = ({ children }) => {
       localStorage.setItem("token", data.token);
       setUser(data.user);
       // console.log(data.user);
-      
+
       setIsAuth(true);
       navigate("/"); // Redirect after successful login
     } catch (error) {
       setIsAuth(false);
       toast.error(error.response?.data?.message || "Login failed");
+    } finally {
+      setBtnLoading(false);
+    }
+  }
+
+  // In UserContext.js or the file where the function is defined
+  const registerUser = async (name, email, password, navigate) => {
+    setBtnLoading(true);
+    try {
+      const { data } = await axios.post(`${server}/api/user/register`, {
+        name,
+        email,
+        password,
+      });
+
+      toast.success(data.message);
+      localStorage.setItem("activationToken", data.activationToken);
+      setBtnLoading(false);
+      setIsAuth(true);
+      navigate("/verify"); // Redirect after successful registration
+    } catch (error) {
+      setIsAuth(false);
+      toast.error(error.response?.data?.message || "Registration failed");
+    } finally {
+      setBtnLoading(false);
+    }
+  };
+
+  async function verifyOtp(otp, navigate) {
+    setBtnLoading(true);
+    const activationToken = localStorage.getItem("activationToken");
+    try {
+      const { data } = await axios.post(`${server}/api/user/verify`, {
+        otp,
+        activationToken,
+      });
+
+      toast.success(data.message);
+      navigate("/login");
+      setBtnLoading(false);
+      localStorage.clear();
+    } catch (error) {
+      setIsAuth(false);
+      toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setBtnLoading(false);
     }
@@ -70,6 +114,8 @@ export const UserContextProvider = ({ children }) => {
         loginUser,
         btnLoading,
         loading,
+        registerUser,
+        verifyOtp,
       }}
     >
       {children}

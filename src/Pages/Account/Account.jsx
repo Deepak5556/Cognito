@@ -6,12 +6,8 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Account = () => {
-  const { setIsAuth, setUser, user } = UserData(); // Destructure user from context
+  const { setIsAuth, setUser, user } = UserData(); 
   const navigate = useNavigate();
-
-  // Retrieve user data from localStorage and parse it into an object
-
-  // If userD is null or doesn't have necessary properties, show login message
   if (!user || !user.name || !user.email || !user.role) {
     return <div>Please log in to access your profile.</div>;
   }
@@ -19,8 +15,8 @@ const Account = () => {
   // Logout handler
   const logoutHandler = () => {
     localStorage.clear();
-    setUser(null); // Reset the user in context
-    setIsAuth(false); // Update authentication state
+    setUser(null);
+    setIsAuth(false); 
     toast.success("Logged Out");
     navigate("/login");
   };

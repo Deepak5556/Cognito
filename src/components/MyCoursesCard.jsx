@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const MyCoursesCard = ({
   title,
   rating,
@@ -18,13 +19,13 @@ const MyCoursesCard = ({
         border: "1px solid #ddd",
         borderRadius: "8px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        transition: "transform 0.2s",
+        transition: "transform 0.2s, box-shadow 0.2s",
       }}
     >
       <div className="card-body" style={{ padding: "8px" }}>
         <img
           src={thumbnail}
-          alt="Course Image"
+          alt="Course "
           style={{
             width: "100%",
             height: "12rem",
@@ -37,17 +38,10 @@ const MyCoursesCard = ({
           style={{
             fontSize: "1.25rem",
             fontWeight: "bold",
-            // marginBottom: "15px",
           }}
         >
           {title}
         </h5>
-        {/* <h6
-          className="card-subtitle mb-2 text-muted"
-          style={{ fontSize: "0.9rem", color: "#666" }}
-        >
-          Rating: {rating}/5
-        </h6> */}
         <p
           className="card-text"
           style={{ fontSize: "0.9rem", color: "#333", marginBottom: "0px" }}

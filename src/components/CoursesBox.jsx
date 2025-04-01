@@ -1,5 +1,8 @@
 import React from "react";
-const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
+import { server } from "..";
+import { useNavigate } from "react-router-dom";
+const CoursesBox = ({ course }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="card"
@@ -17,7 +20,7 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
     >
       <div className="card-body" style={{ padding: "10px" }}>
         <img
-          src={thumbnail}
+          src={`${server}/${course.image}`}
           alt="Course"
           style={{
             width: "100%",
@@ -29,24 +32,25 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
         <h5
           className="card-title"
           style={{
-            fontSize: "1.25rem",
+            fontSize: "2rem",
             fontWeight: "bold",
-            marginBottom: "15px",
+            marginBottom: "18px",
+            marginTop: "15px",
           }}
         >
-          {title}
+          {course.title}
         </h5>
         <h6
           className="card-subtitle mb-2 text-muted"
           style={{ fontSize: "0.9rem", color: "#666" }}
         >
-          Rating: {rating}/5
+          Category: {course.category}
         </h6>
         <p
           className="card-text"
           style={{ fontSize: "0.9rem", color: "#333", marginBottom: "10px" }}
         >
-          Instructor: {instructor}
+          Instructor: {course.createdBy}
         </p>
         <p
           className="card-text"
@@ -57,10 +61,10 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
             marginBottom: "20px",
           }}
         >
-          Price: ${price}
+          Price: {course.price}
         </p>
-        <a
-          href="deepakportfolioo.web.app"
+        <button
+          onClick={() => navigate(`/Home/CourseDetails/${course._id}`)}
           className="btn btn-success"
           style={{
             backgroundColor: "#4CB04F",
@@ -74,7 +78,7 @@ const CoursesBox = ({ title, rating, instructor, price, thumbnail }) => {
           }}
         >
           Enroll Now
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -2,21 +2,28 @@ import React from "react";
 import "../style/Dashboard.css";
 import Button from "./Button";
 import learn from "../assets/img/DashBoard/learn.svg";
+import { UserData } from "../context/UserContext";
 
 const DashCard = () => {
   const handleClick = () => {
     console.log("Button was clicked!");
   };
 
+  const { user } = UserData();
+
   return (
-    <div className="dash-card primary-bg rounded-24">
+    <div className="dash-card primary-bg rounded-24 ">
       <div className="card-content px-5">
         {" "}
         <div className="row">
           <div className="col-9">
-            <h1 className="text-white fw-bold fs-50 pt-2">
-              Unlock More Courses
+            <h1 className="text-white fw-bold  mt-2 fs-50">
+              Welcome Back {user.name}
+              {/* Unlock More Courses */}
             </h1>
+            {/* <h1 className="text-white fw-bold  mt-0 fs-30 mt-2">
+              Unlock More Courses
+            </h1> */}
             <p className="text-white fs-30">
               Just For Your Journey Now - Find, Learn, Grow!
             </p>
@@ -32,7 +39,7 @@ const DashCard = () => {
                   marginBottom: "10px",
                 }}
               >
-               Get Premium
+                Get Premium
               </Button>
             </div>
           </div>

@@ -4,13 +4,13 @@ import { UserData } from "../../context/UserContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { btnLoading, loginUser } = UserData();
+  const { btnLoading, loginUser } = UserData();  // Get loginUser and btnLoading from context
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const SubmitHandler = async (e) => {
     e.preventDefault();
-    await loginUser(email, password, navigate);
+    await loginUser(email, password, navigate);  // Call loginUser function
   };
 
   return (

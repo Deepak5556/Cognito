@@ -19,5 +19,4 @@ const MyCourseCard = ({ courses }) => {
     </div>
   );
 };
-
 export default MyCourseCard;

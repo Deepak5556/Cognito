@@ -6,11 +6,9 @@ import Login from "./Pages/Login/Login";
 import Signin from "./Pages/Login/Signin";
 import Verify from "./Pages/Login/Verify";
 import { UserData } from "./context/UserContext";
+import Account from "./Pages/Account/Account";
 
 function App() {
-  const {user} = UserData();
-  console.log(user);
-  
   return (
     <Routes>
       <Route path="/" element={<OnBoarding />} />
@@ -18,6 +16,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Signin />} />
       <Route path="/verify" element={<Verify />} />
+      <Route path="/account" element={<Account />} />
     </Routes>
   );
 }

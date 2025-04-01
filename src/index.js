@@ -7,7 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/UserContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-export const server = 'https://localhost:5500'
+// export const; // Ensure correct protocol
+export const server = "http://localhost:5500"; // ✅ Ensure this is correct
+
+
 
 
 root.render(

@@ -1,11 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../layout/NavBar/NavBar";
 
 const OnBoarding = () => {
   const navigate = useNavigate(); // Initialize navigate
 
   return (
     <div>
+
+      <NavBar/>
+
+
+
       <div className="home">
         <div className="home-content">
           <h1>Welcome to our E-learning Platform</h1>

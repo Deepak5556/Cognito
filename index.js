@@ -5,6 +5,7 @@ import userRouter from "./routes/user.router.js";
 import courseRouter from "./routes/course.route.js";
 import adminRouter from "./routes/admin.route.js";
 import Razorpay from "razorpay";
+import cors from "cors";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ export const instance = new Razorpay({
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+
 app.use("/uploads", express.static("uploads")); // Serve uploaded files
 
 // Routes

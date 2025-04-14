@@ -8,8 +8,11 @@ import Support from "../Pages/Student/Support";
 import Settings from "../Pages/Student/Settings";
 import MyCourses from "../Pages/Student/MyCourses";
 import CourseDetails from "../pagecomponents/CourseDetails";
+import Login from "../Pages/Login/Login";
+import { UserData } from "../context/UserContext";
 
 const AppNavigation = () => {
+  const {isAuth} = UserData();
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} /> 
@@ -21,6 +24,7 @@ const AppNavigation = () => {
       <Route path="Settings" element={<Settings />} />
       <Route path="MyCourses" element={<MyCourses />} />
       <Route path="CourseDetails" element={<CourseDetails />} />
+      <Route path="/CourseDetails/:id" element={ isAuth ? <CourseDetails/>:<Login/> }/>
     </Routes>
   );
 };

@@ -11,21 +11,17 @@ import Loading from "./Pages/Loading/Loading";
 
 function App() {
   const { loading } = UserData();
-
-  // When the app is loading, show a loading spinner or message
   if (loading) {
     return (
       <>
         <div
           className="container d-flex justify-content-center align-items-center"
-          style={{ minHeight: "100vh" }} // Ensures full viewport height
+          style={{ minHeight: "100vh" }} 
         >
           <Loading />
         </div>
       </>
     );
-
-    // You can replace this with a more sophisticated loader component
   }
 
   return (

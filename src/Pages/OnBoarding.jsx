@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../layout/NavBar/NavBar";
-import Loading from "./Loading/Loading";
 
 const OnBoarding = () => {
   const navigate = useNavigate(); // Initialize navigate

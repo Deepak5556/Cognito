@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import AppNavigation from "../router/AppNavigation";
-import NavBar from "../components/NavBar";
 
 const Home = () => {
   return (

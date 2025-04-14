@@ -3,81 +3,112 @@ import { useParams } from "react-router-dom";
 import { CourseData } from "../context/CourseContext";
 import { server } from "..";
 import Loading from "../Pages/Loading/Loading";
+import axios from "axios"; 
 
-const CourseDetails = () => {
-  const params = useParams();
-  const { fetchCourse, course } = CourseData();
+  const CourseDetails = () => {
+    const params = useParams();
+    const { fetchCourse, course } = CourseData();
 
-  
+    const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchCourse(params.id);
-  }, [params.id]);
+    useEffect(() => {
+      fetchCourse(params.id);
+    }, [params.id]);
 
-  const checkoutHandler = async () => {
-    
-  }
+    const checkoutHandler = async () => {
+      const token = localStorage.getItem("token");
+      setLoading(true);
+
+      const {
+        data: { order },
+      } = await axios.post(
+        `${server}/api/course/checkout/${params.id}`,
+        {},
+        {
+          Headers: {
+            token,
+          },
+        }
+      );
+
+      const options = {
+        key: "rzp_test_5HvK6kKG4N0Epb",
+        amount: order.id,
+        currency: "INR",
+        name: "Cognito",
+        description: "Learn , Grow , Excel",
+        image: "https://example.com/your_logo",
+        order_id: order.id,
 
 
+        handler: async function (response) {
+          const {} = response        
+        }
+      };
+    };
 
-
-  return (
-    <div>
-      {course === undefined ? (
-        <div><Loading/></div> 
-      ) : (
-        <div className="card">
-          <div className="row mx-2 py-3">
-            <div className="rounded-md ">
-              <img
-                src={`${server}/${course.image}`}
-                alt="Courses"
-                height={250}
-                width={350}
-                className="br-5"
-              />
-            </div>
-            <div className="details">
-              <div className="mentor py-3">
-                <p className="fs-4 m-0 text-danger fw-bold ">{course.createdBy}</p>
-                <div className=" m-0 fw-bold fs-3">{course.title}</div>
-                <div className="description m-0">
-                  <p className="m-0 my-1">
-                    Learn React basics like components, props, state, hooks, and
-                    routing. Build real-world projects, optimize performance,
-                    and deploy your apps online!
+    return (
+      <div>
+        {course === undefined ? (
+          <div>
+            <Loading />
+          </div>
+        ) : (
+          <div className="card">
+            <div className="row mx-2 py-3">
+              <div className="rounded-md ">
+                <img
+                  src={`${server}/${course.image}`}
+                  alt="Courses"
+                  height={250}
+                  width={350}
+                  className="br-5"
+                />
+              </div>
+              <div className="details">
+                <div className="mentor py-3">
+                  <p className="fs-4 m-0 text-danger fw-bold ">
+                    {course.createdBy}
                   </p>
-                </div>
-
-                <div className="modules">
-                  <div className=" m-0 fw-bold fs-3">Modules</div>
-                  <div className="modulesList">
-                    <ul className="mt-2">
-                      <li>Module Name</li>
-                      <li>Module Name</li>
-                    </ul>
+                  <div className=" m-0 fw-bold fs-3">{course.title}</div>
+                  <div className="description m-0">
+                    <p className="m-0 my-1">
+                      Learn React basics like components, props, state, hooks, and
+                      routing. Build real-world projects, optimize performance,
+                      and deploy your apps online!
+                    </p>
                   </div>
-                </div>
 
-                <div className="prices m-0">
-                  <s>₹1500</s>{" "}
-                  <span className="fw-bold fs-5 my-1">
-                    Just ₹ {course.price}
-                  </span>
+                  <div className="modules">
+                    <div className=" m-0 fw-bold fs-3">Modules</div>
+                    <div className="modulesList">
+                      <ul className="mt-2">
+                        <li>Module Name</li>
+                        <li>Module Name</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="prices m-0">
+                    <s>₹1500</s>{" "}
+                    <span className="fw-bold fs-5 my-1">
+                      Just ₹ {course.price}
+                    </span>
+                  </div>
+                  <button
+                    onClick={checkoutHandler}
+                    className="btn primary-bg text-white mt-3 fw-bold my-1"
+                  >
+                    Buy Now
+                  </button>
                 </div>
-                <button
-                onClick={checkoutHandler}
-                className="btn primary-bg text-white mt-3 fw-bold my-1">
-                  Buy Now
-                </button>
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
-};
+        )}
+      </div>
+    );
+  };
 
 // const CourseDetails = () => {
 //   const params = useParams();

@@ -115,7 +115,6 @@ export const getMyCourses = TryCatch(async (req, res) => {
     courses,
   });
 });
-
 export const checkout = TryCatch(async (req, res) => {
   const user = await User.findById(req.user._id);
   const course = await Courses.findById(req.params.id);

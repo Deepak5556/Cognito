@@ -28,6 +28,8 @@ app.use("/api", adminRouter);
 
 // Test Route
 app.get("/", (req, res) => {
+  console.log("Working");
+
   res.send("Server is Working");
 });
 
